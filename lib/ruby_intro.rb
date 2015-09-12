@@ -3,33 +3,72 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  total = 0
+  arr.each{ |x| total += x} 
+  return total
 end
 
+
 def max_2_sum arr
-  # YOUR CODE HERE
+    return 0 if arr.empty?
+    return arr[0] if arr.length == 1
+    
+    # If the top two are the same, just multiply the max by 2
+    newarr = arr.sort
+    if newarr.last == newarr.at(-2)
+      return newarr.last * 2
+    end
+    sum = 0
+    sum += arr.max
+    arr.delete(arr.max)
+    sum+= arr.max
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  return false if arr.empty?
+  return false if arr.length == 1
+  
+  arr.combination(2).any? {|a, b| a + b == n}
+  
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, " << name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  if s.length == 0
+    return false
+  end
+  
+  if /^[aeiou\d\W]/i.match(s)
+    return false
+  else
+    return true
+  end
+  
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+
+  if /^[01]/.match(s)
+    b = s.to_i(2)
+    if b%4 == 0
+      return true
+    else
+      return false
+    end
+    
+  else
+    return false
+  end
+
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+
 end
