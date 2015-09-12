@@ -90,6 +90,17 @@ class BookInStock
   
   def price_as_string
     
+    price = self.price.to_s
+    if /[.]/.match(price)
+      if price[-2] == "."
+        pricetos = "$" << price << "0"
+      else
+        pricetos = "$" << price
+      end
+    else
+      pricetos = "$" << price << ".00"
+    end
+    return pricetos
   end
   
 
